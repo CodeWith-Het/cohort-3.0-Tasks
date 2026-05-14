@@ -10,7 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #1a1a1a; /* Dark theme as seen in image_bc62bd.png */
+    background-color: #1a1a1a; 
 }
 
 .card {
@@ -19,7 +19,6 @@ body {
     border-radius: 12px;
     overflow: hidden;
     color: white;
-    /* IMPORTANT: Boundary for absolute children */
     position: relative; 
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
@@ -30,7 +29,6 @@ body {
     object-fit: cover;
 }
 
-/* Positioning Property Task */
 .badge {
     position: absolute;
     top: 15px;
