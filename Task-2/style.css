@@ -1,4 +1,3 @@
-/* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -7,14 +6,13 @@
 }
 
 body {
-    display: flex; /* Flexbox used for center alignment */
+    display: flex; 
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background-color: #f0f2f5;
 }
 
-/* Main Card Container */
 .card {
     width: 320px;
     background: white;
@@ -28,17 +26,17 @@ body {
     background: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);
 }
 
-/* POSITIONING SECTION */
+
 .profile-container {
-    position: relative; /* Requirement: position: relative */
+    position: relative; 
     height: 50px;
     display: flex;
     justify-content: center;
 }
 
 .avatar {
-    position: absolute; /* Requirement: position: absolute */
-    top: -50px; /* Moves it up to overlap the banner */
+    position: absolute; 
+    top: -50px; 
     border: 5px solid white;
     border-radius: 50%;
     width: 100px;
@@ -54,19 +52,19 @@ body {
 }
 
 .status-badge {
-    position: absolute; /* Requirement: position: absolute */
+    position: absolute; 
     bottom: 5px;
     right: 5px;
     width: 18px;
     height: 18px;
-    background-color: #4caf50; /* Green Online Status */
+    background-color: #4caf50; 
     border: 3px solid white;
     border-radius: 50%;
 }
 
-/* FLEXBOX SECTION */
+
 .content {
-    display: flex; /* Requirement: display: flex */
+    display: flex; 
     flex-direction: column;
     align-items: center;
     padding: 20px;
@@ -74,7 +72,7 @@ body {
 }
 
 .stats {
-    display: flex; /* Requirement: display: flex */
+    display: flex; 
     gap: 20px;
     margin: 15px 0;
     color: #666;
