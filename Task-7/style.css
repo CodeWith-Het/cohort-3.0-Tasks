@@ -1,0 +1,134 @@
+/* --- CSS Variables for Theming --- */
+:root[data-theme="light"] {
+    --bg-color: #f4f7f6;
+    --text-color: #333;
+    --container-bg: #ffffff;
+    --border-color: #ccc;
+    --primary-color: #3498db;
+    --danger-color: #e74c3c;
+    --success-color: #2ecc71;
+}
+
+:root[data-theme="dark"] {
+    --bg-color: #1a1a2e;
+    --text-color: #e0e0e0;
+    --container-bg: #16213e;
+    --border-color: #444;
+    --primary-color: #0f3460;
+    --danger-color: #c0392b;
+    --success-color: #27ae60;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: var(--container-bg);
+    border-bottom: 2px solid var(--border-color);
+}
+
+#theme-toggle {
+    background: transparent;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+.container {
+    display: flex;
+    justify-content: center; /* Centers the app now that sidebar is gone */
+    padding: 2rem 5%;
+}
+
+.app-main {
+    width: 100%;
+    max-width: 800px; 
+    background: var(--container-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Forms & Controls */
+input, select, button {
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+.danger-btn { background-color: var(--danger-color); }
+.success-btn { background-color: var(--success-color); }
+
+#task-form, .controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap; /* Helps on mobile devices */
+}
+
+#task-title, #search-input { flex: 1; min-width: 200px; }
+
+.stats {
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* Task List */
+#task-list {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.task-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    background-color: var(--bg-color);
+}
+
+.task-card[data-status="completed"] {
+    opacity: 0.6;
+    border-left: 4px solid var(--success-color);
+}
+
+.task-card[data-status="completed"] .task-text {
+    text-decoration: line-through;
+}
+
+.task-actions button {
+    margin-left: 5px;
+    padding: 0.5rem;
+}

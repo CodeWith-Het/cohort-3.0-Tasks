@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced DOM Explorer - Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 4. Theme Toggle -->
+    <header class="header">
+        <h1>Advanced Task Manager</h1>
+        <button id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+    </header>
+
+    <div class="container">
+        <!-- Main Application Area -->
+        <main class="app-main">
+            <!-- Bonus: Counters -->
+            <div class="stats">
+                <span id="pending-counter">Pending: 0</span> | 
+                <span id="completed-counter">Completed: 0</span>
+            </div>
+
+            <!-- Bonus: Search and Filter -->
+            <div class="controls">
+                <input type="text" id="search-input" placeholder="Search tasks...">
+                <select id="filter-category">
+                    <option value="all">All Categories</option>
+                    <option value="work">Work</option>
+                    <option value="personal">Personal</option>
+                    <option value="study">Study</option>
+                </select>
+            </div>
+
+            <!-- 1. Task Creation Module -->
+            <form id="task-form">
+                <input type="text" id="task-title" placeholder="What needs to be done?" required value="">
+                <select id="task-category">
+                    <option value="work">Work</option>
+                    <option value="personal">Personal</option>
+                    <option value="study">Study</option>
+                </select>
+                <button type="submit" id="add-btn">Add Task</button>
+            </form>
+
+            <button id="clear-all-btn" class="danger-btn">Clear All Tasks</button>
+
+            <!-- Task Container for Event Delegation -->
+            <ul id="task-list"></ul>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
