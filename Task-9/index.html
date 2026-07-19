@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productivity Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <header id="top-bar">
+        <div id="datetime-widget">
+            <div id="time-display">--:--:--</div>
+            <div id="date-display">Loading date...</div>
+        </div>
+        
+        <div id="weather-widget">
+            <div class="weather-loading">Loading weather...</div>
+            <div class="weather-content" style="display: none;">
+                <span id="w-location">Ahmedabad</span> | 
+                <span id="w-temp">--°C</span> | 
+                <span id="w-condition">--</span>
+            </div>
+        </div>
+
+        <button id="theme-switch" title="Toggle Light/Dark Theme">
+            <i class="fas fa-moon"></i>
+        </button>
+    </header>
+
+    <main id="app-container">
+        <!-- 1. MAIN DASHBOARD VIEW -->
+        <section id="view-dashboard" class="view-section active">
+            <h1>My Dashboard</h1>
+            <div class="dashboard-grid">
+                <div class="dash-card" data-target="view-todo">
+                    <i class="fas fa-check-square"></i>
+                    <h3>Todo List</h3>
+                </div>
+                <div class="dash-card" data-target="view-planner">
+                    <i class="fas fa-calendar-day"></i>
+                    <h3>Daily Planner</h3>
+                </div>
+                <div class="dash-card" data-target="view-goals">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Daily Goals</h3>
+                </div>
+                <div class="dash-card" data-target="view-pomodoro">
+                    <i class="fas fa-stopwatch"></i>
+                    <h3>Pomodoro Timer</h3>
+                </div>
+                <div class="dash-card" data-target="view-motivation">
+                    <i class="fas fa-quote-left"></i>
+                    <h3>Motivation Quote</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. TODO LIST VIEW -->
+        <section id="view-todo" class="view-section">
+            <button class="back-btn"><i class="fas fa-arrow-left"></i> Back to Dashboard</button>
+            <h2>Todo List</h2>
+            <form id="todo-form">
+                <input type="text" id="todo-input" placeholder="What do you need to do?" required>
+                <button type="submit">Add Task</button>
+            </form>
+            <ul id="todo-list"></ul>
+        </section>
+
+        <!-- 3. DAILY PLANNER VIEW -->
+        <section id="view-planner" class="view-section">
+            <button class="back-btn"><i class="fas fa-arrow-left"></i> Back to Dashboard</button>
+            <h2>Daily Planner</h2>
+            <p style="text-align:center; margin-bottom:1rem; opacity:0.8;">Your schedule auto-saves as you type.</p>
+            <div id="planner-container"></div>
+        </section>
+
+        <!-- 4. DAILY GOALS VIEW -->
+        <section id="view-goals" class="view-section">
+            <button class="back-btn"><i class="fas fa-arrow-left"></i> Back to Dashboard</button>
+            <h2>Daily Goals</h2>
+            <div id="goal-progress">Progress: <span id="goal-count">0 of 0</span> completed</div>
+            <form id="goal-form">
+                <input type="text" id="goal-input" placeholder="Set a big goal for today..." required>
+                <button type="submit">Add Goal</button>
+            </form>
+            <ul id="goal-list"></ul>
+        </section>
+
+        <!-- 5. POMODORO TIMER VIEW -->
+        <section id="view-pomodoro" class="view-section">
+            <button class="back-btn"><i class="fas fa-arrow-left"></i> Back to Dashboard</button>
+            <h2>Pomodoro Timer</h2>
+            <div class="pomodoro-container">
+                <h3 id="pomodoro-session">Work Session (25 Min)</h3>
+                <div id="pomodoro-time">25:00</div>
+                <div class="pomodoro-controls">
+                    <button id="pom-start" class="btn-action">Start</button>
+                    <button id="pom-pause" class="btn-action">Pause</button>
+                    <button id="pom-reset" class="btn-action btn-danger">Reset</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. MOTIVATION QUOTE VIEW -->
+        <section id="view-motivation" class="view-section">
+            <button class="back-btn"><i class="fas fa-arrow-left"></i> Back to Dashboard</button>
+            <h2>Motivation Quote</h2>
+            <div class="quote-container">
+                <div id="quote-loading">Fetching an inspiring quote...</div>
+                <div id="quote-content" style="display: none;">
+                    <p id="quote-text" style="font-size: 1.5rem; font-style: italic; margin-bottom:1rem;">"..."</p>
+                    <p id="quote-author" style="font-weight: bold; color: var(--text-muted);">- Author</p>
+                </div>
+                <button id="new-quote-btn" style="margin-top:2rem;">Get Another Quote</button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Connects to your logic script -->
+    <script src="script.js"></script>
+</body>
+</html>
