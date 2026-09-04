@@ -1,36 +1,36 @@
+import { useForm } from "react-hook-form";
+import axios from "axios";
+
 const App = () => {
-    return (
-      
-        
-    <form>
-      <div>
-        <label htmlFor="name">Name</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          placeholder="Enter your name"
-        />
-      </div>
+  const { register, handleSubmit } = useForm();
 
-      <div>
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Enter your email"
-        />
-      </div>
+  const handleFormSubmit = async (data) => {
+    for (const image of data.images) {
+      const formData = new FormData();
 
-      <div>
-        <label htmlFor="profile">Profile Picture</label>
-        <input type="file" id="profile" name="profile" accept="image/*" />
-      </div>
+      formData.append("name", data.name);
+      formData.append("email", data.email);
+      formData.append("images", image);
 
-      <button type="submit">Submit</button>
+      axios.post("http://localhost:3000/file/", formData, {
+        withCredentials: true
+     })
+
+      console.log("Response:", data);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit(handleFormSubmit)}>
+      <input type="text" placeholder="Enter name" {...register("name")} />
+
+      <input type="email" placeholder="Enter email" {...register("email")} />
+
+      <input type="file" accept="image/*" multiple {...register("images")} />
+
+      <button type="submit">Upload</button>
     </form>
   );
-}
+};
 
 export default App;
